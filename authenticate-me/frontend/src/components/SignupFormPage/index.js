@@ -46,7 +46,7 @@ const SignupFormPage = () => {
                 <input
                 type="text"
                 value={username}
-                onCHange={(event) => setUsername(event.target.value)}
+                onChange={(event) => setUsername(event.target.value)}
                 required
                 />
             </label>
@@ -55,6 +55,14 @@ const SignupFormPage = () => {
                 <input
                 type="password"
                 value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                />
+            </label>
+            <label>
+                Confirm Password
+                <input
+                type="password"
+                value={confirmPassword}
                 onChange={(event) => setConfirmPassword(event.target.value)}
                 />
             </label>
