@@ -1,3 +1,8 @@
-.submitButton {
-    color: blue;
+#root {
+    height: 90rem;
+}
+
+.background {
+    /* background-image: url("https://forumbilder.com/images/2014/05/29/final-fantasy-background-web-website-rules-themes-messages-pixel-images-ffxiv-wallpapers-array-wallwuzz-hd-wallpaper-5438.jpg"); */
+    background-color: beige;
 }

@@ -28,46 +28,58 @@ const SignupFormPage = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-            <label>
-                Email
-                <input
-                type="text"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                required
-                />
-            </label>
-            <label>
-                Username
-                <input
-                type="text"
-                value={username}
-                onChange={(event) => setUsername(event.target.value)}
-                required
-                />
-            </label>
-            <label>
-                Password
-                <input
-                type="password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-                />
-            </label>
-            <label>
-                Confirm Password
-                <input
-                type="password"
-                value={confirmPassword}
-                onChange={(event) => setConfirmPassword(event.target.value)}
-                />
-            </label>
-            <button className="submitButton" type="submit">Sign Up</button>
-        </form>
+        <div className="background inline" style={{height: "70%"}}>
+            <div className="container" style={{width: "500px"}}>
+                <form className="inline text-center border border-5 border-dark rounded bg-light" onSubmit={handleSubmit}>
+                    <ul>
+                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                    </ul>
+                    <label>
+                        Email
+                    </label>
+                    <div></div>
+                        <input
+                        type="text"
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
+                        required
+                        />
+                    <div></div>
+                    <label>
+                        Username
+                    </label>
+                    <div></div>
+                        <input
+                        type="text"
+                        value={username}
+                        onChange={(event) => setUsername(event.target.value)}
+                        required
+                        />
+                    <div></div>
+                    <label>
+                        Password
+                    </label>
+                    <div></div>
+                        <input
+                        type="password"
+                        value={password}
+                        onChange={(event) => setPassword(event.target.value)}
+                        />
+                    <div></div>
+                    <label>
+                        Confirm Password
+                    </label>
+                    <div></div>
+                        <input
+                        type="password"
+                        value={confirmPassword}
+                        onChange={(event) => setConfirmPassword(event.target.value)}
+                        />
+                    <div></div>
+                    <button className="btn btn-outline-dark btn-sm m-1" type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
     )
 }
 

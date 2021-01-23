@@ -1,6 +1,7 @@
 import { Route, Switch } from 'react-router-dom';
 import { useState, useEffect } from "react"
 import { useDispatch } from "react-redux"
+import 'bootstrap/dist/css/bootstrap.min.css';
 import * as sessionActions from "./store/session"
 import LoginFormPage from './components/LoginFormPage/index'
 import SignupFormPage from './components/SignupFormPage/index'

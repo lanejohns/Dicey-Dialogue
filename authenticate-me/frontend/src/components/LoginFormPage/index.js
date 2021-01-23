@@ -25,29 +25,40 @@ const LoginFormPage = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-            <label>
-                Username or Email
-                <input type="text" 
-                value={credential} 
-                onChange = {(event) => setCredential(event.target.value)}
-                required
-                />
-            </label>
-            <label>
-                Password
-                <input
-                type="password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-                required
-                />
-            </label>
-            <button className="submitButton" type="submit">Log In</button>
-        </form>
+        <div className="background inline" style={{height: "70%"}}>
+            <div className="container" style={{width: "500px"}}>
+                <form className="inline text-center border border-5 border-dark rounded bg-light" onSubmit={handleSubmit}>
+                    <ul>
+                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                    </ul>
+                    <label className="">
+                        Username or Email
+                    </label>
+                    <div></div>
+                    <input 
+                    className="m-0"
+                    type="text" 
+                    value={credential} 
+                    onChange = {(event) => setCredential(event.target.value)}
+                    required
+                    />
+                    <div></div>
+                    <label>
+                        Password
+                    </label>
+                    <div></div>
+                    <input
+                    className="m-0"
+                    type="password"
+                    value={password}
+                    onChange={(event) => setPassword(event.target.value)}
+                    required
+                    />
+                    <div></div>
+                    <button className="btn btn-outline-dark btn-sm m-1" type="submit">Log In</button>
+                </form>
+            </div>
+        </div>
     )
 }
 
