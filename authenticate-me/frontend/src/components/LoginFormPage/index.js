@@ -61,6 +61,7 @@ const LoginFormPage = () => {
         // </div>
         <div className="container text-center">
             <h1 className="">Please log in using your Username or Email</h1>
+            <div></div>
             {/* <img src="https://cpng.pikpng.com/pngl/s/32-325448_animated-wizard-clipart.png" alt="new" /> */}
             <form className="position-absolute top-50 start-50 translate-middle border border-dark border-4 text-white bg-dark" style={{width: "500px"}} onSubmit={handleSubmit}>
                 <ul>
