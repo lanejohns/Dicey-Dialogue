@@ -1,3 +1,12 @@
-.submitButton {
-    color: blue;
+.wizImg {
+    background-image: url("https://cpng.pikpng.com/pngl/s/32-325448_animated-wizard-clipart.png");
+}
+
+#root {
+    height: 90rem;
+}
+
+.background {
+    /* background-image: url("https://forumbilder.com/images/2014/05/29/final-fantasy-background-web-website-rules-themes-messages-pixel-images-ffxiv-wallpapers-array-wallwuzz-hd-wallpaper-5438.jpg"); */
+    background-color: beige;
 }

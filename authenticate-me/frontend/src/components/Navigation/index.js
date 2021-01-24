@@ -15,8 +15,8 @@ const Navigation = ( {isLoaded} ) => {
     } else {
         sessionLinks = (
             <>
-            <NavLink to="/login">Log In</NavLink>
-            <NavLink to="/signup">Sign up</NavLink>
+            <NavLink className="btn btn-outline-dark btn-sm m-1" to="/login">Log In</NavLink>
+            <NavLink className="btn btn-outline-dark btn-sm m-1" to="/signup">Sign up</NavLink>
             </>
         )
     }
@@ -24,7 +24,7 @@ const Navigation = ( {isLoaded} ) => {
     return (
         <ul>
             <li>
-                <NavLink exact to="/">Home</NavLink>
+                <NavLink className="btn btn-outline-dark btn-sm m-1" exact to="/">Home</NavLink>
                 {isLoaded && sessionLinks}
             </li>
         </ul>

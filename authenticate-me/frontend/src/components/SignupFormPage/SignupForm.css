@@ -1,3 +1,8 @@
-.submitButton {
-    color: red;
+#root {
+    height:90rem;
+}
+
+.background {
+    /* background-image: url("https://i.pinimg.com/originals/5c/40/59/5c405905dd98a9efcbd05a8b122bd01c.jpg") */
+    background-color: beige;
 }
