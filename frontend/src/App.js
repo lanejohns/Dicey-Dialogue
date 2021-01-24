@@ -7,6 +7,7 @@ import LoginFormPage from './components/LoginFormPage/index'
 import SignupFormPage from './components/SignupFormPage/index'
 import Navigation from './components/Navigation/index'
 import Home from './components/Home/index'
+import CreateTalePage from './components/CreateTalePage/index'
 
 function App() {
   const dispatch = useDispatch()
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/newtale">
+            <CreateTalePage />
           </Route>
         </Switch>
       )}
