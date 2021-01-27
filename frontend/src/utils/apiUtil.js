@@ -1,4 +1,4 @@
-import { receiveTales } from "../store/reducers/tales"
+import { receiveTales, taleAdded } from "../store/reducers/tales"
 import { fetch } from "../store/csrf"
 
 
@@ -12,3 +12,10 @@ export const fetchTales = () => async (dispatch) => {
     dispatch(receiveTales(tales))
     return tales
 }
+
+export const addTale = () => async (dispatch) => {
+    const response = await fetch('/api/newtale')
+    if(!response.ok) throw response
+    const { tale } = await response.data
+    dispatch(taleAdded(tale))
+} 

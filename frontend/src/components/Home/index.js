@@ -59,7 +59,12 @@ import './Home.css'
                     <div>Section for recent articles</div>
                     {/* We will want a way to query the database for the most recent tale, then render it  */}
                     {tales.length > 1 && (
+                        <>
                         <p>{tales[0].title}</p>
+                        <p>{tales[1].title}</p>
+                        <p>{tales[2].title}</p>
+                        <p>{tales[3].title}</p>
+                        </>
                     )}
                     {/* {console.log("this is the object that contains other objects", objectsTales)}
                     {stateTales && looper(objectsTales)} */}
