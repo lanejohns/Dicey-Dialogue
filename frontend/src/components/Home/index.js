@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from "react-router-dom"
 import { fetchTales } from '../../utils/apiUtil'
 import { receiveTales } from '../../store/reducers/tales'
+import { fetch } from '../../store/csrf'
 import './Home.css'
 
     const Home = () => {
@@ -11,26 +12,38 @@ import './Home.css'
 
         // const stateTales = useSelector((state => Object.values(state)))
         const stateTales = useSelector((state => state.tales))
-        // const objectsTales = stateTales[1]
-        // const title = objectsTales[1]
 
-        const looper = (objectsTales) => {
-            for (const key in objectsTales) {
-                setTales([...tales, key.title])
-                console.log(key.title)
-            }
+        // const looper = (objectsTales) => {
+        //     for (const key in objectsTales) {
+        //         setTales([...tales, key.title])
+        //         console.log(key.title)
+        //     }
+        // }
+
+        async function fetchTales() {
+            const response = await fetch('/api/tales')
+            if(!response.ok) throw response
+            const { tales } = await response.data
+            // console.log("TALES", tales)
+            setTales(tales)
+            console.log(tales)
         }
 
         const dispatch = useDispatch()
         
 
+        // useEffect(() => {
+        //     const getAllTales = async () => {
+        //         await dispatch(fetchTales())
+        //     }
+        //     const results = getAllTales()
+        //     setTales(results)
+        // }, [])
+
         useEffect(() => {
-            const getAllTales = async () => {
-                await dispatch(fetchTales())
-            }
-            const results = getAllTales()
-            setTales(results)
-        }, [dispatch])
+            fetchTales()
+            console.log(tales)
+        }, [])
 
     return (
         <>
@@ -43,16 +56,19 @@ import './Home.css'
                         <button className="btn btn-outline-light">Lore</button>
                         <NavLink to="/newtale" className="btn btn-outline-light m-2">Tell Your Tale</NavLink>
                         </div>
-                    <div className="">Section for recent articles</div>
+                    <div>Section for recent articles</div>
                     {/* We will want a way to query the database for the most recent tale, then render it  */}
+                    {tales.length > 1 && (
+                        <p>{tales[0].title}</p>
+                    )}
                     {/* {console.log("this is the object that contains other objects", objectsTales)}
                     {stateTales && looper(objectsTales)} */}
-                    {stateTales && looper(stateTales)}
+                    {/* {stateTales && looper(stateTales)} */}
                     {/* {console.log("this is the object that contains other objects", objectsTales)} */}
-                    {console.log("this should be stateTales", tales)}
-                    {stateTales && (
-                        <div>{stateTales.map(tale => <div>{tale}</div>)}</div>
-                    )}
+                    {/* {console.log("this should be tales", tales)} */}
+                    {/* {stateTales && ( */}
+                        {/* <div>{stateTales.map(tale => <div>{tale}</div>)}</div> */}
+                    {/* )} */}
                     </div>
         </>
     )
