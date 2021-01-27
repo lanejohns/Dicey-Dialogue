@@ -13,9 +13,13 @@ export const fetchTales = () => async (dispatch) => {
     return tales
 }
 
-export const addTale = () => async (dispatch) => {
-    const response = await fetch('/api/newtale')
+export const addTale = (payload) => async (dispatch) => {
+    const response = await fetch('/api/tales', {
+        method: "POST",
+        body: JSON.stringify(payload)
+    })
     if(!response.ok) throw response
     const { tale } = await response.data
     dispatch(taleAdded(tale))
+    return tale
 } 

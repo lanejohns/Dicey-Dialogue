@@ -4,9 +4,11 @@ import { NavLink } from "react-router-dom"
 import { fetchTales } from '../../utils/apiUtil'
 import { receiveTales } from '../../store/reducers/tales'
 import { fetch } from '../../store/csrf'
+import { parser } from 'react-html-parser'
 import './Home.css'
 
     const Home = () => {
+        // const parser = new DOMParser()
         const [tales, setTales] = useState([])
         // create a slice of state for tales
 
