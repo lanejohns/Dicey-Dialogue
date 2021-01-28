@@ -12,9 +12,12 @@ router.get('/', asyncHandler(async (req, res) => {
     return res.json({tales})
 }))
 
-router.get('/:id', asyncHandler(async (req, res) => {
+router.get(`/:id(\\d+)`, asyncHandler(async (req, res) => {
+    const id = Number.parseInt(req.params.id)
+    // console.log("THIS IS THE ID", id)
     // TODO: check to see if the id below is read as a number, may have to use Number.parseInt() if not
-    const tale = await Tale.findByPk(req.params.id)
+    const tale = await Tale.findOne({where: id})
+    // console.log(tale)
     return res.json({tale})
 }))
 

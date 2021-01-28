@@ -26,10 +26,13 @@ export const talesReducer = (state={}, action) => {
             action.tales.forEach((tale) => (nextState[tale.id] = tale))
             return Object.assign(newState, nextState)
         case 'VIEW_TALE':
-            let newState = {}
+            let anotherState = {}
             // console.log("THIS IS ACTION.TALES", action.tales)
-            action.tales.forEach((tale) => (newState[tale.id] = tale))
-            return Object.assign(newState, newState)
+            // action.tale.forEach((tale) => (anotherState[tale.id] = tale))
+            // return Object.assign(newState, anotherState)
+            // TODO: figure out why the tale is null <------
+            newState[action.tale.id] = action.tale
+            return newState
 
         default:
             return state

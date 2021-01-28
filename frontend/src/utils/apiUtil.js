@@ -12,11 +12,11 @@ export const fetchTales = () => async (dispatch) => {
     dispatch(receiveTales(tales))
     return tales
 }
-export const fetchTale = () => async (dispatch) => {
-    const response = await fetch('/api/tales/:id')
+export const fetchTale = (taleId) => async (dispatch) => {
+    const response = await fetch(`/api/tales/${taleId}`)
     if(!response.ok) throw response
     const { tale } = await response.data
-    // console.log("TALES", tales)
+    // console.log("TALE", tale)
     dispatch(receiveTale(tale))
     return tale
 }

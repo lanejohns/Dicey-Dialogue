@@ -34,7 +34,7 @@ function App() {
           <Route path="/newtale">
             <CreateTalePage />
           </Route>
-          <Route path="/tale/:taleId">
+          <Route path="/tales/:taleId">
             <ViewTale />
           </Route>
         </Switch>

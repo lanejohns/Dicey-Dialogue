@@ -4,6 +4,7 @@ const usersRouter = require('./users')
 const talesRouter = require('./tales')
 
 router.use('/session', sessionRouter)
+
 router.use('/tales', talesRouter)
 
 router.use('/users', usersRouter)
