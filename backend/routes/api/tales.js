@@ -12,6 +12,11 @@ router.get('/', asyncHandler(async (req, res) => {
     return res.json({tales})
 }))
 
+router.get('/:id', asyncHandler(async (req, res) => {
+    const tale = await Tale.findByPk(req.params.id)
+    return res.json({tale})
+}))
+
 router.post('/', requireAuth ,asyncHandler(async (req, res) => {
     // first we need to find the user based on the user token
     console.log("THIS IS THE USER!!!!!!!!!!!",req.user.id)

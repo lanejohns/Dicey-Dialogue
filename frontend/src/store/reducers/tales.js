@@ -7,6 +7,10 @@ export const receiveTales = (tales) => {
     return { type: 'RECEIVE_TALES', tales}
 }
 
+export const receiveTale = (tale) => {
+    return { type: 'VIEW_TALE', tale}
+}
+
 // Reducers
 const initialState = []
 export const talesReducer = (state={}, action) => {
@@ -21,6 +25,11 @@ export const talesReducer = (state={}, action) => {
             // console.log("THIS IS ACTION.TALES", action.tales)
             action.tales.forEach((tale) => (nextState[tale.id] = tale))
             return Object.assign(newState, nextState)
+        case 'VIEW_TALE':
+            let newState = {}
+            // console.log("THIS IS ACTION.TALES", action.tales)
+            action.tales.forEach((tale) => (newState[tale.id] = tale))
+            return Object.assign(newState, newState)
 
         default:
             return state
