@@ -2,3 +2,12 @@
     background-color: black;
     color: white;
 }
+
+.featuredTales {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: black solid 1px;
+    padding: 5px;
+    margin: 30px;
+}

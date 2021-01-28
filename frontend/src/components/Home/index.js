@@ -26,7 +26,6 @@ import './Home.css'
             const response = await fetch('/api/tales')
             if(!response.ok) throw response
             const { tales } = await response.data
-            // console.log("TALES", tales)
             setTales(tales)
             console.log(tales)
         }
@@ -58,15 +57,29 @@ import './Home.css'
                         <button className="btn btn-outline-light">Lore</button>
                         <NavLink to="/newtale" className="btn btn-outline-light m-2">Tell Your Tale</NavLink>
                         </div>
-                    <div>Section for recent articles</div>
+                    <h1 className="featuredTales">Featured Tales</h1>
                     {/* We will want a way to query the database for the most recent tale, then render it  */}
                     {tales.length > 1 && (
-                        <>
-                        <p>{tales[0].title}</p>
-                        <p>{tales[1].title}</p>
+                        <div className="card row col-6">
+                            <h3 className="card-body">
+                                <h4 className="card-header">{tales[0].title}</h4>
+                                <h5 className="card-text mt-2">The first tale posted to Dicey Dialogue!</h5>
+                            </h3>
+                        {/* <p>{tales[1].title}</p>
                         <p>{tales[2].title}</p>
-                        <p>{tales[3].title}</p>
-                        </>
+                        <p>{tales[3].title}</p> */}
+                        </div>
+                    )}
+                    {tales.length > 1 && (
+                        <div className="card row col-6">
+                            <h3 className="card-body">
+                                <h4 className="card-header">{tales[1].title}</h4>
+                                <h5 className="card-text mt-2">The second tale posted to Dicey Dialogue!</h5>
+                            </h3>
+                        {/* <p>{tales[1].title}</p>
+                        <p>{tales[2].title}</p>
+                        <p>{tales[3].title}</p> */}
+                        </div>
                     )}
                     {/* {console.log("this is the object that contains other objects", objectsTales)}
                     {stateTales && looper(objectsTales)} */}
