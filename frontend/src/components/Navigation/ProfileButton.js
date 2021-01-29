@@ -30,7 +30,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
+      <button className="d20 btn btn-outline-dark btn-sm" onClick={openMenu}>
         <i className="fas fa-dice-d20" />
       </button>
       {showMenu && (
@@ -38,7 +38,7 @@ function ProfileButton({ user }) {
           <li>{user.username}</li>
           <li>{user.email}</li>
           <li>
-            <button onClick={logout}>Log Out</button>
+            <button className="btn btn-outline-dark"onClick={logout}>Log Out</button>
           </li>
         </ul>
       )}

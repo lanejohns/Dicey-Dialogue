@@ -8,19 +8,10 @@ import { parser } from 'react-html-parser'
 import './Home.css'
 
     const Home = () => {
-        // const parser = new DOMParser()
         const [tales, setTales] = useState([])
         // create a slice of state for tales
 
-        // const stateTales = useSelector((state => Object.values(state)))
         const stateTales = useSelector((state => state.tales))
-
-        // const looper = (objectsTales) => {
-        //     for (const key in objectsTales) {
-        //         setTales([...tales, key.title])
-        //         console.log(key.title)
-        //     }
-        // }
 
         async function fetchTales() {
             const response = await fetch('/api/tales')
@@ -58,37 +49,30 @@ import './Home.css'
                         <NavLink to="/newtale" className="btn btn-outline-light m-2">Tell Your Tale</NavLink>
                         </div>
                     <h1 className="featuredTales">Featured Tales</h1>
-                    {/* We will want a way to query the database for the most recent tale, then render it  */}
-                    {tales.length > 1 && (
-                        <div className="card row col-6">
-                            <h3 className="card-body">
-                                <h4 className="card-header">{tales[0].title}</h4>
-                                <h5 className="card-text mt-2">The first tale posted to Dicey Dialogue!</h5>
-                            </h3>
-                        {/* <p>{tales[1].title}</p>
-                        <p>{tales[2].title}</p>
-                        <p>{tales[3].title}</p> */}
-                        </div>
-                    )}
-                    {tales.length > 1 && (
-                        <div className="card row col-6">
-                            <h3 className="card-body">
-                                <h4 className="card-header">{tales[1].title}</h4>
-                                <h5 className="card-text mt-2">The second tale posted to Dicey Dialogue!</h5>
-                            </h3>
-                        {/* <p>{tales[1].title}</p>
-                        <p>{tales[2].title}</p>
-                        <p>{tales[3].title}</p> */}
-                        </div>
-                    )}
-                    {/* {console.log("this is the object that contains other objects", objectsTales)}
-                    {stateTales && looper(objectsTales)} */}
-                    {/* {stateTales && looper(stateTales)} */}
-                    {/* {console.log("this is the object that contains other objects", objectsTales)} */}
-                    {/* {console.log("this should be tales", tales)} */}
-                    {/* {stateTales && ( */}
-                        {/* <div>{stateTales.map(tale => <div>{tale}</div>)}</div> */}
-                    {/* )} */}
+                    <div className="d-flex justify-content-center cardDiv">
+                        {/* We will want a way to query the database for the most recent tale, then render it  */}
+                        {tales.length > 1 && (
+                            <div className="card row col-6 div1">
+                                <div className="card-body">
+                                    <NavLink to={`/tales/${tales[1].id}`}className="btn btn-outline-light">{tales[1].title}</NavLink>
+                                    <h5 className="card-text mt-2">The first tale posted to Dicey Dialogue!</h5>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                    <div className="spacing"></div>
+                    <div className="d-flex justify-content-center cardDiv">
+                        {/* We will want a way to query the database for the most recent tale, then render it  */}
+                        {tales.length > 1 && (
+                            <div className="card row col-6 div1">
+                                <div className="card-body">
+                                    <NavLink to={`/tales/${tales[1].id}`}className="btn btn-outline-light">{tales[1].title}</NavLink>
+                                    <h5 className="card-text mt-2">The first tale posted to Dicey Dialogue!</h5>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+ 
                     </div>
         </>
     )

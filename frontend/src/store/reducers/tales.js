@@ -22,15 +22,10 @@ export const talesReducer = (state={}, action) => {
             });
         case 'RECEIVE_TALES':
             let nextState = {}
-            // console.log("THIS IS ACTION.TALES", action.tales)
             action.tales.forEach((tale) => (nextState[tale.id] = tale))
             return Object.assign(newState, nextState)
         case 'VIEW_TALE':
             let anotherState = {}
-            // console.log("THIS IS ACTION.TALES", action.tales)
-            // action.tale.forEach((tale) => (anotherState[tale.id] = tale))
-            // return Object.assign(newState, anotherState)
-            // TODO: figure out why the tale is null <------
             newState[action.tale.id] = action.tale
             return newState
 

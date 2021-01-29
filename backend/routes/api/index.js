@@ -2,12 +2,15 @@ const router = require('express').Router();
 const sessionRouter = require('./session')
 const usersRouter = require('./users')
 const talesRouter = require('./tales')
+const commentsRouter = require('./comments')
 
 router.use('/session', sessionRouter)
 
 router.use('/tales', talesRouter)
 
 router.use('/users', usersRouter)
+
+router.use('/comments', commentsRouter)
 
 const asyncHandler = require('express-async-handler');
 const { setTokenCookie } = require('../../utils/auth.js');
