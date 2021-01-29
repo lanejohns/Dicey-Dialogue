@@ -13,16 +13,12 @@
     margin: 30px;
 }
 
-.spacing {
+/* .spacing {
     height: 2rem;
-}
-/* 
-.cardDiv {
-    background-color: black;
-    color: white;
 } */
 
-.div1 {
+.cardDivs {
     background-color: black;
     color: white;
 }
+

@@ -32,8 +32,8 @@ const ViewTale = () => {
     return (
         <>
             {taleSelector && taleSelector.map(tale => (
-                <div className="divContainer h-50 container border border-dark rounded taleContainer"key={tale.id}>
-                    <h2 className="taleTitle">{tale.title}</h2>
+                <div className="divContainer container border border-dark rounded taleContainer"key={tale.id}>
+                    <h2 className="taleTitle m-2">{tale.title}</h2>
                     <button type="button" className="btn btn-outline-dark m-2" onClick={() => isHidden = false}>Comments</button>
                     <hr className="my-2"></hr>
                     <div className="taleContent">{tale.content}</div>

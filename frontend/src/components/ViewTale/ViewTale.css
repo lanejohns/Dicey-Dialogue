@@ -11,7 +11,7 @@
     border: black solid 2px;
     margin: 1rem;
     padding: 1rem;
-    background-color: blanchedalmond;
+    background-color: white;
     font-size: larger;
     box-shadow: black;
     box-shadow: 10px 5px 5px black;
@@ -19,6 +19,7 @@
 
 .taleContainer {
     box-shadow: 10px 5px 5px black;
+    background-color: blanchedalmond;
 }
 
 /* .divContainer {
