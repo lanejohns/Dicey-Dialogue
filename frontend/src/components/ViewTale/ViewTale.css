@@ -22,6 +22,17 @@
     background-color: blanchedalmond;
 }
 
-/* .divContainer {
-    background-color:
-} */
+.spacer {
+    height: 1rem;
+}
+
+.commentsTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.commentBox {
+    border: black solid 3px;
+    background-color: white;
+}
