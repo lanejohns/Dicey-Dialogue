@@ -27,6 +27,7 @@ const Navigation = ( {isLoaded} ) => {
                 <NavLink className="btn btn-outline-dark btn-sm m-1" exact to="/">Home</NavLink>
                 {isLoaded && sessionLinks}
             </li>
+        <h1 className="navTitle">Dicey Dialogue</h1>
         </ul>
     )
 }
