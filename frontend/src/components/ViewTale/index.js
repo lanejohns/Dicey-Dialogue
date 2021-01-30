@@ -14,12 +14,13 @@ const ViewTale = () => {
     const taleId = Number.parseInt(useParams().taleId)
     const taleSelector = useSelector(state => Object.values(state.tales))
     const comments = useSelector(state => Object.values(state.comments))
-    let isHidden = true
+    const [reveal, setReveal] = useState(false)
 
 
     useEffect(() => {
         dispatch(fetchTale(taleId))
         dispatch(getAllComments(taleId))
+
     }, [dispatch])
     
 
@@ -29,10 +30,10 @@ const ViewTale = () => {
                 <div>
                     <div className="divContainer container border border-dark rounded taleContainer"key={tale.id}>
                         <h2 className="taleTitle m-2">{parser(tale.title)}</h2>
-                        <button type="button" className="btn btn-outline-dark m-2" onClick={() => isHidden = false}>Comments</button>
                         <hr className="my-2"></hr>
                         <div className="taleContent">{parser(tale.content)}</div>
-                        {isHidden === true && (
+                        <button type="button" className="btn btn-outline-dark m-2" onClick={(event) => setReveal(!reveal)}>Leave a Comment</button>
+                        {reveal === true && (
                             <CreateComment />
                         )}
                     </div>
@@ -41,7 +42,7 @@ const ViewTale = () => {
                     <div className="container commentBox">
                     {comments && comments.map(comment => 
                         <div key={comment.id}>
-                            <div className="comment">{comment.content}</div>
+                            <div className="comment">{parser(comment.content)}</div>
                             <hr className="my-2"></hr>
                         </div>
                     )}

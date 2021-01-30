@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import ReactQuill from "react-quill"
 import { addComment } from '../../utils/apiUtil'
 import { setComments } from '../../store/reducers/comments'
 
@@ -14,6 +15,10 @@ const CreateComment = () => {
     //     dispatch(createComment())
     // }, [dispatch])
 
+    const handleChange = (value) => {
+        setContent(value)
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault()
         const payload = {
@@ -26,9 +31,10 @@ const CreateComment = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <textarea value={content} onChange={(event) => setContent(event.target.value)}></textarea>
+            {/* <textarea value={content} onChange={(event) => setContent(event.target.value)}></textarea> */}
             {/* {taleId && console.log(taleId)} */}
-            <button className="btn btn-outline-dark m-3 btn-sm">Submit</button>
+            <ReactQuill value={content} onChange={handleChange} />
+            <button type="submit" className="btn btn-outline-dark m-3 btn-sm">Submit</button>
         </form>
     )
 }
