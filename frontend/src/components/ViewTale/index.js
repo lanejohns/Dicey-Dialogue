@@ -28,11 +28,11 @@ const ViewTale = () => {
                     <button type="button" className="btn btn-outline-dark m-2" onClick={() => isHidden = false}>Comments</button>
                     <hr className="my-2"></hr>
                     <div className="taleContent">{parser(tale.content)}</div>
+                    {isHidden === true && (
+                        <CreateComment />
+                    )}
                 </div>
             ))}
-            {isHidden === false && (
-                <CreateComment />
-            )}
         </>
     )
 }

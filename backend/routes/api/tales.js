@@ -27,6 +27,7 @@ router.post('/', requireAuth ,asyncHandler(async (req, res) => {
     const tale = await Tale.build({
         title: req.body.title,
         content: req.body.content,
+        username: req.body.username,
         userId: req.user.id
     })
     // then we save the new tale to the database

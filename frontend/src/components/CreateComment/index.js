@@ -10,6 +10,7 @@ const CreateComment = () => {
     return (
         <form>
             <textarea></textarea>
+            <button className="btn btn-outline-dark m-3">Submit</button>
         </form>
     )
 }
