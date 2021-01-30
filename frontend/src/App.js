@@ -36,7 +36,7 @@ function App() {
             <CreateTalePage isLoaded={isLoaded}/>
           </Route>
           <Route path="/tales/:taleId" exact>
-            <ViewTale />
+            <ViewTale isLoaded={isLoaded}/>
           </Route>
           <Route path="/lore">
             <LorePage />
