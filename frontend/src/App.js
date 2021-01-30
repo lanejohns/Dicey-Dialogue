@@ -7,6 +7,9 @@ import LoginFormPage from './components/LoginFormPage/index'
 import SignupFormPage from './components/SignupFormPage/index'
 import Navigation from './components/Navigation/index'
 import Home from './components/Home/index'
+import CreateTalePage from './components/CreateTalePage/index'
+import ViewTale from './components/ViewTale/index'
+import LorePage from './components/LorePage/index'
 
 function App() {
   const dispatch = useDispatch()
@@ -21,13 +24,22 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route path="/" exact>
-            <Home />
+            <Home isLoaded={isLoaded}/>
           </Route>
           <Route path="/login">
             <LoginFormPage />
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/newtale">
+            <CreateTalePage isLoaded={isLoaded}/>
+          </Route>
+          <Route path="/tales/:taleId" exact>
+            <ViewTale />
+          </Route>
+          <Route path="/lore">
+            <LorePage />
           </Route>
         </Switch>
       )}

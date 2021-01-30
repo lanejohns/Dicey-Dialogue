@@ -2,3 +2,23 @@
     background-color: black;
     color: white;
 }
+
+.featuredTales {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: black groove 2px;
+    border-style: groove;
+    padding: 5px;
+    margin: 30px;
+}
+
+/* .spacing {
+    height: 2rem;
+} */
+
+.cardDivs {
+    background-color: black;
+    color: white;
+}
+
