@@ -1,60 +1,34 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import { fetch } from '../../store/csrf'
 import { parser } from 'react-html-parser'
-import './Home.css'
 
-    const Home = ( {isLoaded} ) => {
-        const [tales, setTales] = useState([])
-        // create a slice of state for tales
+const LorePage = () => {
 
-        const sessionUser = useSelector(state => state.session.user)
+    const [tales, setTales] = useState([])
 
-        let sessionLinks;
-        if (sessionUser) {
-        sessionLinks = (
-            <>
-                <NavLink to="/lore" className="btn btn-outline-light m-2">Explore The Lore</NavLink>
-                <NavLink to="/newtale" className="btn btn-outline-light m-2">Tell Your Tale</NavLink>
-            </>
-        )
-    } else {
-        sessionLinks = (
-            <>
-                <NavLink to="/lore" className="btn btn-outline-light m-2">Explore The Lore</NavLink>
-                <NavLink to="/login" className="btn btn-outline-light m-2">Please log in or sign up to create tales
-
-</NavLink>
-            </>
-        )
+    async function fetchTales() {
+        const response = await fetch('/api/tales')
+        if(!response.ok) throw response
+        const { tales } = await response.data
+        setTales(tales)
+        // console.log(tales)
     }
 
-        async function fetchTales() {
-            const response = await fetch('/api/tales')
-            if(!response.ok) throw response
-            const { tales } = await response.data
-            setTales(tales)
-        }
-        
-
-        useEffect(() => {
-            fetchTales()
-        }, [])
+    useEffect(() => {
+        fetchTales()
+        console.log(tales)
+    }, [])
 
     return (
-        <>
-            <div className="container">
-                <div className="jumbotron">
-                    <h1 className="display-4">Welcome to Dicey Dialogue!</h1>
-                        <p className="lead">There are twenty sides to every story, tell yours!</p>
-                        <hr className="my-4"></hr>
-                        <p>Click below to read lore previously written or create a tale of your own!</p>
-                        {isLoaded && sessionLinks}
-                        </div>
-                    <h1 className="featuredTales">Featured Tales</h1>
-                    <div className="container d-flex justify-content-center cardDiv">
-                        {tales.length > 1 && (
+        <div className="container">
+            {tales.length > 1 && (
+                            // <div className="div1">
+                            //     <div className="card-body">
+                            //         <NavLink to={`/tales/${tales[1].id}`}className="btn btn-outline-light">{tales[1].title}</NavLink>
+                            //         <h5 className="card-text mt-2">The first tale posted to Dicey Dialogue!</h5>
+                            //     </div>
+                            // </div>
                             <div className="card-deck">
                                 <div className="card mb3 cardDivs">
                                     <div className="card-body">
@@ -86,12 +60,8 @@ import './Home.css'
                                 </div>
                             </div>
                         )}
-                    </div>
-                    <div className="spacing"></div>
- 
-                    </div>
-        </>
+        </div>
     )
 }
 
-export default Home
+export default LorePage
