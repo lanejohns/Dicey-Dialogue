@@ -22,7 +22,6 @@ const LorePage = () => {
 
     return (
         <div className="container">
-            <h1>Ye Olde lore page</h1>
             {tales.length > 1 && (
                             // <div className="div1">
                             //     <div className="card-body">

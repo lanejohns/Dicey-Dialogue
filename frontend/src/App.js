@@ -24,7 +24,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route path="/" exact>
-            <Home />
+            <Home isLoaded={isLoaded}/>
           </Route>
           <Route path="/login">
             <LoginFormPage />
@@ -33,9 +33,9 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route path="/newtale">
-            <CreateTalePage />
+            <CreateTalePage isLoaded={isLoaded}/>
           </Route>
-          <Route path="/tales/:taleId">
+          <Route path="/tales/:taleId" exact>
             <ViewTale />
           </Route>
           <Route path="/lore">

@@ -25,7 +25,6 @@ export const talesReducer = (state={}, action) => {
             action.tales.forEach((tale) => (nextState[tale.id] = tale))
             return Object.assign(newState, nextState)
         case 'VIEW_TALE':
-            let anotherState = {}
             newState[action.tale.id] = action.tale
             return newState
 

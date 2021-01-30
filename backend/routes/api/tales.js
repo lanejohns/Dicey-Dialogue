@@ -23,8 +23,6 @@ router.get(`/:id(\\d+)`, asyncHandler(async (req, res) => {
 
 router.post('/', requireAuth ,asyncHandler(async (req, res) => {
     // first we need to find the user based on the user request
-    // console.log("THIS IS THE USER!!!!!!!!!!!",req.user.id)
-    // const user = await User.findOne({ where: { id: req.user.id } });
     // then we want to build the tale based on title, content, and userId
     const tale = await Tale.build({
         title: req.body.title,
