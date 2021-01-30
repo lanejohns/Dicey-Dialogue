@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { NavLink } from "react-router-dom"
 import { fetch } from '../../store/csrf'
 import { parser } from 'react-html-parser'
+import './LorePage.css'
 
 const LorePage = () => {
 
@@ -21,7 +22,7 @@ const LorePage = () => {
     }, [])
 
     return (
-        <div className="container">
+        <div className="container loreContainer">
             {tales.length > 1 && (
                             // <div className="div1">
                             //     <div className="card-body">

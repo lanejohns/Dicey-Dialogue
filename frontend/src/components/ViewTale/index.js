@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
 import parser from 'react-html-parser'
 import { fetchTale } from "../../utils/apiUtil"
+import { getAllComments } from "../../utils/apiUtil"
 import "./ViewTale.css"
 
 import CreateComment from "../CreateComment/index"
@@ -12,11 +13,13 @@ const ViewTale = () => {
     const history = useHistory()
     const taleId = Number.parseInt(useParams().taleId)
     const taleSelector = useSelector(state => Object.values(state.tales))
+    const comments = useSelector(state => Object.values(state.comments))
     let isHidden = true
 
 
     useEffect(() => {
         dispatch(fetchTale(taleId))
+        dispatch(getAllComments(taleId))
     }, [dispatch])
     
 
@@ -31,6 +34,11 @@ const ViewTale = () => {
                     {isHidden === true && (
                         <CreateComment />
                     )}
+                    {comments && comments.map(comment => 
+                        <div key={comment.id}>
+                            <div>{comment.content}</div>
+                        </div>
+                            )}
                 </div>
             ))}
         </>
