@@ -5,3 +5,11 @@
 .d20 {
     background-color: #fada5e
 }
+
+.navTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bolder;
+}

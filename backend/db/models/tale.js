@@ -4,11 +4,13 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     content: DataTypes.STRING,
     comments: DataTypes.STRING,
+    username: DataTypes.STRING,
     userId: DataTypes.INTEGER
   }, {});
   Tale.associate = function(models) {
-    Tale.belongsTo(models.User, { foreignKey: 'userId' })
-    Tale.belongsToMany(models.Lore, { foreignKey: 'taleId', through: 'Liked_tales', otherKey: 'loreId'})
+    // Tale.belongsTo(models.User, { foreignKey: 'userId' })
+    Tale.belongsToMany(models.User, { foreignKey: 'taleId', through: 'Liked_tales'})
+    Tale.hasMany(models.Comment, { foreignKey: 'taleId'})
   };
   return Tale;
 };

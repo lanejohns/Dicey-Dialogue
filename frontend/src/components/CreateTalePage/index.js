@@ -31,7 +31,7 @@ const CreateTalePage = ( {isLoaded} ) => {
         const payload = {
             title,
             content,
-            // username
+            username
         }
         const submitTale = await dispatch(addTale(payload))
         if (submitTale) {
@@ -43,10 +43,8 @@ const CreateTalePage = ( {isLoaded} ) => {
 
     return (
         <div className="container border border-dark rounded h-25 taleEditor">
-        <p>Feel free to write about your experiences as a GM/player, any questions you may have for the community, or just a fun topic to speak on!</p>
-        {/* {username.length > 0 && (
-            <p>{username}</p>
-        )} */}
+        <p>Feel free to write about your experiences as a GM/player, any questions you may have for the community, or just a fun topic to speak about!</p>
+        <hr className="my-1"></hr>
         <form onSubmit={handleSubmit}>
             <input className="border border-dark rounded taleTitle" value={title} onChange={(event) => setTitle(event.target.value)} placeholder="title"/>
             <ReactQuill value={content} onChange={handleChange} />

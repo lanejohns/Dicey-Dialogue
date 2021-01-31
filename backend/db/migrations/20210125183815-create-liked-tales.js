@@ -12,9 +12,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      postId: {
+      taleId: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: { model: 'Tales'}
       },
       createdAt: {
         allowNull: false,

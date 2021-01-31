@@ -10,13 +10,17 @@ module.exports = {
       },
       title: {
         type: Sequelize.STRING(50),
+        allowNull: false
       },
       content: {
-        type: Sequelize.STRING(1500),
+        type: Sequelize.STRING(2000),
         allowNull: false
       },
       comments: {
-        type: Sequelize.STRING(400)
+        type: Sequelize.STRING(500)
+      },
+      username: {
+        type: Sequelize.STRING(30),
       },
       userId: {
         type: Sequelize.INTEGER,
